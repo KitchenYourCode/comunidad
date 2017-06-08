@@ -3,6 +3,7 @@
 <head>
 	<title>Municipalidad de lavalle</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <script src="https://www.gstatic.com/firebasejs/4.1.1/firebase.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-light" style="background-color: #F5A523;">
@@ -37,18 +38,10 @@
     </div>
   </div>
 </div>
-<script src="https://www.gstatic.com/firebasejs/4.1.1/firebase.js"></script>
-<script>
-  var config = {
-    apiKey: "AIzaSyAwX13JGbMifQBJY3beaSic3Ejj-4Up2vQ",
-    authDomain: "comunidad-41ce3.firebaseapp.com",
-    databaseURL: "https://comunidad-41ce3.firebaseio.com",
-    projectId: "comunidad-41ce3",
-    storageBucket: "comunidad-41ce3.appspot.com",
-    messagingSenderId: "483625482498"
-  };
-  firebase.initializeApp(config);
-</script>
 <script src="js/main.js"></script>
+<script>
+initFirebase();
+login();
+</script>
 </body>
 </html>

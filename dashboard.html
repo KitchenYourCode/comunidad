@@ -9,7 +9,12 @@
       /*height: 100%;*/
       background-color: #505175;
     }
+    .card{
+      max-width: 220px;
+      min-width: 220px;
+    }
   </style>
+  <script src="https://www.gstatic.com/firebasejs/4.1.1/firebase.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-light" style="background-color: #F5A523;">
@@ -29,41 +34,23 @@
   <div id ="panel" class="col-sm-2 panel">
     <div class="row align-items-center">
       <div class="col align-self-center text-center" style="padding-top:50% ">
-        <img src="images.jpg" style="width:100%;height: 100%;
+        <img src="img/images.jpg" style="width:100%;height: 100%;
     max-width:75px; max-height: 75px;" class="rounded-circle" >
-        <p>Nombre Apellido</p>
+        <p id="user"></p>
       </div>
     </div>
   </div>
-  <div class="col-sm-5">
-    <div class="card-deck">
-  <div class="card">
-    <iframe
+  <div class="col-sm-7">
+ 
+  <div class="card-group" id="card-deck">
   
-  height="180"
-  frameborder="0" style="border:0" allowfullscreen>
-</iframe>
-    <div class="card-block">
-      <h4 class="card-title" id="titulo"></h4>
-      <p class="card-text" id="descripcion"></p>
-    </div>
-    <div class="card-footer">
-      <small class="text-muted"></small>
-      <button type="button" class="btn btn-secondary btn-sm" id="ver">Ver</button>
-
-    </div>
   </div>
-
 </div>
-</div>
-  <div class="col-sm-3">
+  <!--<div class="col-sm-3">
 
     <div class="card-deck hidden-xs-up" id="hidden" >
   <div class="card">
-    <iframe
-  
-  height="180"
-  frameborder="0" style="border:0" allowfullscreen>
+    <iframe style="border:0" >
 </iframe>
     <div class="card-block">
       <h4 class="card-title" id="titulo_card"></h4>
@@ -83,30 +70,16 @@
   <div class="card-block">estado</div>
   </div>
 </div>
+</div>-->
+
 </div>
-  <div class="col-sm-2">
-  as
-    <h1>Chatroom</h1>
-  </div>
-</div>
+<script src="js/main.js"></script>
+
+
 <script>
-document.querySelector('iframe').setAttribute('width', document.querySelector('.card').scrollWidth);
-document.querySelector('#ver').addEventListener('click', e=>{
-  document.querySelector('#hidden').classList.remove("hidden-xs-up");
-});
-</script>
-<script src="https://www.gstatic.com/firebasejs/4.1.1/firebase.js"></script>
-<script>
-  var config = {
-    apiKey: "AIzaSyAwX13JGbMifQBJY3beaSic3Ejj-4Up2vQ",
-    authDomain: "comunidad-41ce3.firebaseapp.com",
-    databaseURL: "https://comunidad-41ce3.firebaseio.com",
-    projectId: "comunidad-41ce3",
-    storageBucket: "comunidad-41ce3.appspot.com",
-    messagingSenderId: "483625482498"
-  };
-  firebase.initializeApp(config);
-  const titulo = document.getElementById('titulo');
+  initFirebase();
+  dashboard();
+  /*const titulo = document.getElementById('titulo');
   const descripcion = document.getElementById('descripcion');
   const dbRef = firebase.database().ref().child('web').child('idcard_1');
   dbRef.on('value', snap => {
@@ -116,7 +89,17 @@ document.querySelector('#ver').addEventListener('click', e=>{
     document.getElementById('usuario_card').innerHTML = snap.val().responsable;
     document.getElementById('img_card').setAttribute('src', snap.val().img);
     document.querySelector('iframe').setAttribute('src', 'https://www.google.com/maps/embed/v1/place?key=AIzaSyDXwrgz9MVf2wmkjFQWXkmcJ_bTAqJTgTg&q='+snap.val().coordenadas)
-  });
+  });*/
+</script>
+<script>
+/*document.querySelector('iframe').setAttribute('width', document.querySelector('.card').scrollWidth);
+document.querySelector('iframe').setAttribute('height', 180);
+document.querySelector('iframe').setAttribute('allowfullscreen');
+document.querySelector('iframe').setAttribute('frameborder', 0);
+document.querySelector('iframe').style.border = 0;
+document.querySelector('#ver').addEventListener('click', e=>{
+  document.querySelector('#hidden').classList.remove("hidden-xs-up");
+});*/
 </script>
 </body>
 </html>
