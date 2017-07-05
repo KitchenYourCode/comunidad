@@ -6,11 +6,12 @@ import CardFooter from './CardFooter.js';
 
 export default class Cards extends Component {
   render(){
+
     return(
-      <div className="card" style= {this.props.datos}>
-        <CardHeader/>
-        <CardBlock/>
-        <CardFooter/>
+      <div className="comunidadCardMain">
+        <CardHeader title="titulo222"/>
+        <CardBlock coordenadas="-32.8833303,-68.8935387"/>
+        <CardFooter />
       </div>
     );
   }

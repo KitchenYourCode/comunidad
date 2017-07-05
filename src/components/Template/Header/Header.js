@@ -6,10 +6,10 @@ export default class Header extends Component {
       <nav className="navbar navbar-light comunidadHeader" >
     	<div className="row">
     		<div className="col col-sm-1">
-    			<a className="navbar-brand" href="#">Logo</a>
+    			<a className="navbar-brand" >Logo</a>
     		</div>
     		<div className="col-sm-3 push-4">
-    			<a className="navbar-brand" href="#">Municipalidad de lavalle</a>
+    			<a className="navbar-brand" >Municipalidad de lavalle</a>
     		</div>
     	</div>
     </nav>

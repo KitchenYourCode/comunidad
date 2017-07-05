@@ -1,7 +1,7 @@
 import React, { Component} from 'react';
 
-import Header from '../../components/Header/Header.js';
-import PanelUsers from '../../components/Users/PanelUsers.js';
+import Header from '../../components/Template/Header/Header.js';
+import PanelUsers from '../../components/Template/Users/PanelUsers.js';
 
 export default class CrearUsuarios extends Component {
   constructor(props){

@@ -1,7 +1,7 @@
 import React, { Component} from 'react';
 
-import Header from '../../components/Header/Header.js';
-import PanelUsers from '../../components/Users/PanelUsers.js';
+import Header from '../../components/Template/Header/Header.js';
+import PanelUsers from '../../components/Template/Users/PanelUsers.js';
 import Nuevo from './Nuevo.js';
 export default class CrearUsuarios extends Component {
   constructor(props){
@@ -26,9 +26,11 @@ export default class CrearUsuarios extends Component {
           <div className="col-sm-10">
               <div className="row">
                 <div className="col-sm-9">
-                  <buttom onClick={()=>{this.addComponent(<Nuevo/>)}}className="btn btn-secondary">Nuevo</buttom>
-                  <buttom className="btn btn-secondary">Eliminar</buttom>
-                  <buttom className="btn btn-secondary">Editar</buttom>
+                  <div className="btn-group" role="group">
+                    <buttom type="button" onClick={()=>{this.addComponent(<Nuevo/>)}} className="btn btn-secondary">Nuevo</buttom>
+                    <buttom type="button" className="btn btn-secondary">Eliminar</buttom>
+                    <buttom type="button" className="btn btn-secondary">Editar</buttom>
+                  </div>
                   <table className="table">
                     <tr>
                       <td>Nombre</td>

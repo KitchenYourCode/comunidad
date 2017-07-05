@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-import Header from '../../components/Header/Header.js';
-import PanelUsers from '../../components/Users/PanelUsers.js';
-import CardGroup from '../../components/Cards/CardGroup.js';
-import CardDecks from '../../components/Cards/CardDecks.js';
+import Header from '../../components/Template/Header/Header.js';
+import PanelUsers from '../../components/Template/Users/PanelUsers.js';
+import CardGroup from '../../components/Dashboard/Cards/CardGroup.js';
+import CardDecks from '../../components/Dashboard/DetailCard/CardDecks.js';
 
 export default class LogIn extends Component {
   render(){
@@ -14,10 +14,10 @@ export default class LogIn extends Component {
           <div className="col-sm-2">
             <PanelUsers/>
           </div>
-          <div className="col-sm-7" >
+          <div className="col-sm-6" >
             <CardGroup />
           </div>
-          <div className="col-sm-3">
+          <div className="col-sm-4">
             <CardDecks />
           </div>
         </div>
