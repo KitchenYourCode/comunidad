@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Switch
+  Switch,
+  Redirect
 } from 'react-router-dom';
 
+import firebase from 'firebase';
 
 import Home from './Indexs/Home/Home.js';
 import Dashboard from './Indexs/Dashboard/Dashboard.js';
@@ -13,8 +15,12 @@ import CrearPoligonos from './Indexs/CrearPoligonos/CrearPoligonos.js';
 import Page404 from './components/404.js';
 
  export default class Routes extends Component {
+
+
+
+//<Route exact path="/" component={Home}/>
    render(){
-     return(
+      return(
        <Router>
          <Switch>
            <Route exact path="/" component={Home}/>
