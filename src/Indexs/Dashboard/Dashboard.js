@@ -5,6 +5,7 @@ import PanelUsers from '../../components/Template/Users/PanelUsers.js';
 import CardGroup from '../../components/Dashboard/Cards/CardGroup.js';
 import CardDecks from '../../components/Dashboard/DetailCard/CardDecks.js';
 
+import db from '../../db';
 export default class LogIn extends Component {
   render(){
     return(
@@ -15,10 +16,10 @@ export default class LogIn extends Component {
             <PanelUsers/>
           </div>
           <div className="col-sm-6" >
-            <CardGroup />
+            <CardGroup datos= { db }/>
           </div>
           <div className="col-sm-4">
-            <CardDecks />
+            <CardDecks datos= { db }/>
           </div>
         </div>
 

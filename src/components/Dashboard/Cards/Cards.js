@@ -5,13 +5,16 @@ import CardBlock from './CardBlock.js';
 import CardFooter from './CardFooter.js';
 
 export default class Cards extends Component {
+  constructor(){
+    super();
+  }
   render(){
-
+    let datos= this.props.datos;
     return(
       <div className="comunidadCardMain">
-        <CardHeader title="titulo222"/>
-        <CardBlock coordenadas="-32.8833303,-68.8935387"/>
-        <CardFooter />
+        <CardHeader title={ datos.title }/>
+        <CardBlock coordenadas={ datos.coordenadas }/>
+        <CardFooter datos={datos} id={ datos.id }/>
       </div>
     );
   }
