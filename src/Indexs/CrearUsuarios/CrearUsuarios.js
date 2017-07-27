@@ -3,6 +3,7 @@ import React, { Component} from 'react';
 import Header from '../../components/Template/Header/Header.js';
 import PanelUsers from '../../components/Template/Users/PanelUsers.js';
 import Nuevo from './Nuevo.js';
+import ListaUsuario from './ListaUsuarios.js';
 export default class CrearUsuarios extends Component {
   constructor(props){
     super(props);
@@ -31,26 +32,7 @@ export default class CrearUsuarios extends Component {
                     <buttom type="button" className="btn btn-secondary">Eliminar</buttom>
                     <buttom type="button" className="btn btn-secondary">Editar</buttom>
                   </div>
-                  <table className="table">
-                    <tr>
-                      <td>Nombre</td>
-                      <td>Apellido</td>
-                      <td><input type="checkbox"/></td>
-                      <td>AAAA/MM/DD</td>
-                    </tr>
-                    <tr>
-                      <td>Nombre</td>
-                      <td>Apellido</td>
-                      <td><input type="checkbox"/></td>
-                      <td>AAAA/MM/DD</td>
-                    </tr>
-                    <tr>
-                      <td>Nombre</td>
-                      <td>Apellido</td>
-                      <td><input type="checkbox"/></td>
-                      <td>AAAA/MM/DD</td>
-                    </tr>
-                  </table>
+                  <ListaUsuario/>
                 </div>
               </div>
               {this.state.nuevo}
