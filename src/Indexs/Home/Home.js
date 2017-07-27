@@ -11,12 +11,7 @@ export default class Home extends Component{
     return(
       <div>
       <Header/>
-      <ul>
-     <li><Link to="/">Home</Link></li>
-     <li><Link to="/Dashboard">Dashboard</Link></li>
-     <li><Link to="/CrearUsuarios">CrearUsuarios</Link></li>
-     <li><Link to="/CrearPoligonos">CrearPoligonos</Link></li>
-   </ul>
+
       <LogIn />
     </div>
     );
