@@ -5,9 +5,10 @@ import PanelUsers from '../../components/Template/Users/PanelUsers.js';
 import CardGroup from '../../components/Dashboard/Cards/CardGroup.js';
 import CardDecks from '../../components/Dashboard/DetailCard/CardDecks.js';
 
-import db from '../../db';
+import db, { Dashboard } from '../../db';
 export default class LogIn extends Component {
   render(){
+    Dashboard();
     return(
       <div>
       <Header />

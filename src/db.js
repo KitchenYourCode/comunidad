@@ -1,3 +1,4 @@
+import firebase from 'firebase';
 export default [
   {
     id: 1,
@@ -27,3 +28,6 @@ export default [
     estado: "Iniciado"
   }
 ];
+export function Dashboard (){
+
+}
