@@ -13,7 +13,7 @@ export default class CardMap extends Component {
     }
     return(
         <div>
-          <iframe src={datos.src + datos.coordenadas} width={datos.width} height={datos.height} frameBorder={datos.frameborder} style={datos.style}></iframe>
+          <iframe src={datos.src + datos.coordenadas} title="hardcoding" width={datos.width} height={datos.height} frameBorder={datos.frameborder} style={datos.style}></iframe>
         </div>
     );
   }

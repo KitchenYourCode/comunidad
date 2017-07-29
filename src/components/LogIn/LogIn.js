@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
-import { Redirect, Route } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 export default class LogIn extends Component {
      constructor(){
      super();

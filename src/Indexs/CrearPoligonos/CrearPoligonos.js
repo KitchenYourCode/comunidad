@@ -12,7 +12,7 @@ export default class CrearUsuarios extends Component {
   }
   addPanel(){
     this.setState({
-      nuevo:             <div className="row">
+      nuevo:        <div className="row">
                     <div className="col-sm-12">
                       <input className="form-control" type="text" placeholder="Coordenadas"/>
                       <br/>
@@ -32,7 +32,7 @@ export default class CrearUsuarios extends Component {
             <PanelUsers/>
           </div>
           <div className="col-sm-6">
-            <iframe width="650"  height="500"src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDXwrgz9MVf2wmkjFQWXkmcJ_bTAqJTgTg&q=-32.8833303,-68.8935387"/>
+            <iframe width="650" title="hardcoding" height="500" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDXwrgz9MVf2wmkjFQWXkmcJ_bTAqJTgTg&q=-32.8833303,-68.8935387"/>
           </div>
           <div className="col-sm-4">
             <buttom onClick={()=>{this.addPanel()}}className="btn btn-secondary">Nuevo</buttom>

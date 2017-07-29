@@ -9,15 +9,15 @@ export default class Cards extends Component {
     }
     store.subscribe(()=>{
       this.setState({
-        detailCards: [store.getState().detailCards]
+        detailCards: [store.getState().panelDashboardReducer.detailCards]
       })
     })
   }
 
   render(){
 
-    console.log(this.state.detailCards);
-    if (this.state.detailCards.length != 0) {
+    //console.log(this.state.detailCards);
+    if (this.state.detailCards.length !== 0) {
       return(
           <div className="card" style={{"width":"100%", "maxWidth":"100%"}}>
           {this.state.detailCards.map(detailCard =>
@@ -33,7 +33,7 @@ export default class Cards extends Component {
                   <small className="text-muted">Responsable: {detailCard.correo}</small>
                 </div>
                 <div className="card-footer">
-                  <img className="card-img-top" style={{"width":"350px", "maxWidth":"100%"}} src={detailCard.urlfoto}/>
+                  <img className="card-img-top" style={{"width":"350px", "maxWidth":"100%"}} alt={detailCard.urlfoto} src={detailCard.urlfoto}/>
                 </div>
                 <div className="card-footer">
                   <small className="text-muted">{detailCard.descripcion}</small>

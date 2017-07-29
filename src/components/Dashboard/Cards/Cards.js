@@ -5,9 +5,6 @@ import CardBlock from './CardBlock.js';
 import CardFooter from './CardFooter.js';
 
 export default class Cards extends Component {
-  constructor(){
-    super();
-  }
   render(){
     let datos= this.props.datos;
     return(
