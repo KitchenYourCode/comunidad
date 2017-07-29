@@ -33,10 +33,16 @@ export function Dashboard (){
   let dbRef = firebase.database().ref('orden');
   dbRef.on('value', snapshot=>{
     let i = 0;
+    let data = [];
     snapshot.forEach(snap=>{
       let key = {id: Object.keys(snapshot.val())[i]};
-      let data = Object.assign({},snap.val(), key);
-      console.log(data);
+      data.push(Object.assign({},snap.val(), key));
+      //console.log(data);
+      store.dispatch({
+        type: "DATA_DASHBOARD",
+        data
+      });
+      //console.log(data);
       i++;
     });
     
