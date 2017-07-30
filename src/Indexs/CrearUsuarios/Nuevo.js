@@ -84,6 +84,7 @@ export default class Nuevo extends Component {
             </div>
           </div>
         </div>
+        <button type="button" className="btn btn-success">Success</button>
         </div>
       </div>
     );
