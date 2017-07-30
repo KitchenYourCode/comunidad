@@ -10,6 +10,7 @@ import Home from './Indexs/Home/Home.js';
 import Dashboard from './Indexs/Dashboard/Dashboard.js';
 import CrearUsuarios from './Indexs/CrearUsuarios/CrearUsuarios.js';
 import CrearPoligonos from './Indexs/CrearPoligonos/CrearPoligonos.js';
+import Usuarios from './Indexs/Usuarios/Usuarios.js';
 import Page404 from './components/404.js';
 
  export default class Routes extends Component {
@@ -25,6 +26,7 @@ import Page404 from './components/404.js';
            <Route exact path="/Dashboard" component={Dashboard}/>
            <Route exact path="/CrearUsuarios" component={CrearUsuarios}/>
            <Route exact path="/CrearPoligonos" component={CrearPoligonos}/>
+           <Route exact path="/Usuarios" component={Usuarios}/>
            <Route component={Page404}/>
          </Switch>
        </Router>

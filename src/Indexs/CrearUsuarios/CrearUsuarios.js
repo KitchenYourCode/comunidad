@@ -1,20 +1,33 @@
 import React, { Component} from 'react';
+import firebase from 'firebase';
 
 import Header from '../../components/Template/Header/Header.js';
 import PanelUsers from '../../components/Template/Users/PanelUsers.js';
-import Nuevo from './Nuevo.js';
-import ListaUsuario from './ListaUsuarios.js';
 export default class CrearUsuarios extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      nuevo: '',
-      eliminar: false,
-      editar: false
-    }
-  }
-  addComponent(){
-    this.setState({nuevo:<Nuevo/>});
+  handleAddUser(data){
+    let nombre = document.getElementById('nombreUser').value;
+    let apellido =document.getElementById('apellidoUser').value;
+    let legajo = document.getElementById('legajoUser').value;
+    let dni = document.getElementById('dniUser').value;
+    let emailName = document.getElementById('emailUser').value;
+    let domEmail = document.getElementById('domEmailUser').value;
+    let activo = document.getElementById('activoUser').value;
+    let rol = document.getElementById('rolUser').value;
+    let zona = document.getElementById('zonaUser').value;
+    let email = emailName + '@' + domEmail;
+
+    let send = {
+      nombre,
+      apellido,
+      legajo,
+      dni,
+      email,
+      activo,
+      rol,
+      zona
+    };
+    firebase.database().ref('zona_clientes').push(send);
+    alert('Agregado');
   }
   render(){
     return(
@@ -27,15 +40,81 @@ export default class CrearUsuarios extends Component {
           <div className="col-sm-10">
               <div className="row">
                 <div className="col-sm-9">
-                  <div className="btn-group" role="group">
-                    <buttom type="button" onClick={()=>{this.addComponent(<Nuevo/>)}} className="btn btn-secondary">Nuevo</buttom>
-                    <buttom type="button" className="btn btn-secondary">Eliminar</buttom>
-                    <buttom type="button" className="btn btn-secondary">Editar</buttom>
-                  </div>
-                  <ListaUsuario/>
+                  <div className="form-group row">
+
+                <label  className="col-2 col-form-label">Nombre</label>
+                <div className="col-10">
+                  <input id="nombreUser" className="form-control" type="text"/>
                 </div>
               </div>
-              {this.state.nuevo}
+              <div className="form-group row">
+                <label  className="col-2 col-form-label">Apellido</label>
+                <div className="col-10">
+                  <input className="form-control" type="text" id="apellidoUser" />
+                </div>
+              </div>
+              <div className="form-group row">
+                <label  className="col-2 col-form-label" >Legajo</label>
+                <div className="col-10">
+                  <input className="form-control" type="text" id="legajoUser"/>
+                </div>
+              </div>
+              <div className="form-group row">
+                <label className="col-2 col-form-label">DNI</label>
+                <div className="col-10">
+                  <input className="form-control" type="text" id="dniUser"/>
+                </div>
+              </div>
+              <div className="form-group row">
+                <label  className="col-2 col-form-label" >Email</label>
+                <div className="col-10">
+                  <form className="form-inline">
+                    <input type="text" className="form-control mb-2 mr-sm-2 mb-sm-0" id="emailUser" placeholder=""/>
+                    <div className="input-group mb-2 mr-sm-2 mb-sm-0">
+                      <div className="input-group-addon">@</div>
+                      <input type="text" className="form-control" id="domEmailUser" placeholder=""/>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div className="form-group row">
+                <label className="col-2 col-form-label">Activo</label>
+                <div className="col-10">
+                  <div className="form-group">
+                    <select className="form-control" id="activoUser">
+                      <option>Si</option>
+                      <option>No</option>
+                    </select>
+                </div>
+              </div>
+            </div>
+            <div className="form-group row">
+              <label className="col-2 col-form-label">Rol</label>
+              <div className="col-10">
+                <div className="form-group">
+                  <select className="form-control" id="rolUser">
+                    <option>Admin</option>
+                    <option>Empleado web</option>
+                    <option>Empleado de caller</option>
+                  </select>
+              </div>
+            </div>
+          </div>
+          <div className="form-group row">
+            <label className="col-2 col-form-label">Zona</label>
+            <div className="col-10">
+              <div className="form-group">
+                <select className="form-control" id="zonaUser">
+                  <option>Ejemplo 1</option>
+                  <option>Ejemplo 2</option>
+                </select>
+            </div>
+          </div>
+        </div>
+        <button type="button" className="btn btn-success" onClick={this.handleAddUser.bind(this)}>Agregar</button>
+                </div>
+              </div>
+              
         </div>
       </div>
     </div>
