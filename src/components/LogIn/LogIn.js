@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import firebase from 'firebase';
 import { Redirect } from 'react-router-dom';
 export default class LogIn extends Component {
-    getInitialState(){
+  constructor(props) {
+    super(props);
+  
       this.state = {
        loggedIn : false
      };
-    }
+  }
    componentWillMount(){
      firebase.auth().onAuthStateChanged(firebaseUser =>{
       if (firebaseUser.email) {
