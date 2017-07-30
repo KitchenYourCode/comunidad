@@ -23,6 +23,13 @@ export default class LogIn extends Component {
         dataState: store.getState().dataDashboardReducer.data
       });
     });
+   
+    
+
+  }
+  componentWillUnmount(){
+    //this.setState({});
+    
   }
   render(){
     
@@ -38,7 +45,7 @@ export default class LogIn extends Component {
             <CardGroup datos= { this.state.dataState }/>
           </div>
           <div className="col-sm-4">
-            <CardDecks datos= { db }/>
+            <CardDecks/>
           </div>
         </div>
 

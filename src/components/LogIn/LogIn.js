@@ -10,6 +10,7 @@ export default class LogIn extends Component {
      };
   }
    componentWillMount(){
+
      firebase.auth().onAuthStateChanged(firebaseUser =>{
       if (firebaseUser.email) {
         this.setState({
@@ -36,6 +37,7 @@ export default class LogIn extends Component {
       alert(errorMessage);
     });
   }
+
   render(){
     if (this.state.loggedIn) {
       return ( <Redirect to="/Dashboard"/> );

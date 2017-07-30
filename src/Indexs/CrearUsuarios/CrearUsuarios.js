@@ -15,7 +15,11 @@ export default class CrearUsuarios extends Component {
     let rol = document.getElementById('rolUser').value;
     let zona = document.getElementById('zonaUser').value;
     let email = emailName + '@' + domEmail;
-
+    let date = new Date();
+    let dia = date.getDate();
+    let mes = date.getMonth()+1;
+    let anio = date.getFullYear();
+    let fecha = anio+'/'+mes+'/'+dia;
     let send = {
       nombre,
       apellido,
@@ -24,7 +28,8 @@ export default class CrearUsuarios extends Component {
       email,
       activo,
       rol,
-      zona
+      zona,
+      fecha
     };
     firebase.database().ref('zona_clientes').push(send);
     alert('Agregado');
