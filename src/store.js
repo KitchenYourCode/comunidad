@@ -1,9 +1,20 @@
-import { createStore } from 'redux';
+import { combineReducers, createStore } from 'redux';
 
-const reducer = ( state, action ) => {
+const panelDashboardReducer = ( state = [], action ) => {
   if (action.type === "VIEW_PANEL_RIGHT") {
       return Object.assign({}, state, {detailCards: action.detailCards })
   }
   return state;
 };
-export default createStore (reducer, { detailCards: [] });
+const dataDashboardReducer = (state = [], action )=> {
+	if (action.type === "DATA_DASHBOARD") {
+		return Object.assign({}, state, {data: action.data })
+	}
+	return state;
+};
+const rootReducer = combineReducers({
+    panelDashboardReducer: panelDashboardReducer,
+    dataDashboardReducer: dataDashboardReducer
+});
+const store = createStore(rootReducer);
+export default store;

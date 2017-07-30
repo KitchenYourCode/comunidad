@@ -3,16 +3,19 @@ import React, { Component } from 'react';
 import Cards from './Cards.js';
 
 export default class CardGroup extends Component {
-//style={{"padding": "0", "margin": "0"}}
   render(){
+    let datos = this.props.datos;
     let row = [];
-    this.props.datos.forEach((dato)=>{
+    datos.forEach(dato=>{
       row.push(<Cards  datos={ dato } key={ dato.id }/>);
     });
-    return(
+    if (datos.length !== 0) {
+      return(
         <div className="card-group" >
           { row }
-        </div>
-    );
+        </div>);
+    }else{
+    return(<h1>Sin datos</h1>);
+    }
   }
 }

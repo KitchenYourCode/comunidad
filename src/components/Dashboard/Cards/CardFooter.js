@@ -9,9 +9,10 @@ export default class CardHeader extends Component {
     })
   }
   render(){
+
     return(
         <div className="card-footer text-muted">
-          <label>Responsable: {this.props.datos.correo}</label>
+          <label>Responsable: {this.props.correo}</label>
           <br/>
           <button type="button" className="btn btn-secondary btn-sm" onClick={()=>{this.handleButton(this.props.datos)}}>Ver</button>
         </div>

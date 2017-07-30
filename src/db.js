@@ -1,4 +1,5 @@
 import firebase from 'firebase';
+import store from './store';
 export default [
   {
     id: 1,
@@ -29,5 +30,21 @@ export default [
   }
 ];
 export function Dashboard (){
-
+  let dbRef = firebase.database().ref('orden');
+  dbRef.on('value', snapshot=>{
+    let i = 0;
+    let data = [];
+    snapshot.forEach(snap=>{
+      let key = {id: Object.keys(snapshot.val())[i]};
+      data.push(Object.assign({},snap.val(), key));
+      //console.log(data);
+      store.dispatch({
+        type: "DATA_DASHBOARD",
+        data
+      });
+      //console.log(data);
+      i++;
+    });
+    
+  });
 }

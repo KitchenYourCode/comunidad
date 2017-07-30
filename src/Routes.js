@@ -2,11 +2,9 @@ import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Switch,
-  Redirect
+  Switch
 } from 'react-router-dom';
 
-import firebase from 'firebase';
 
 import Home from './Indexs/Home/Home.js';
 import Dashboard from './Indexs/Dashboard/Dashboard.js';

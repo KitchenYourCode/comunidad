@@ -5,10 +5,28 @@ import PanelUsers from '../../components/Template/Users/PanelUsers.js';
 import CardGroup from '../../components/Dashboard/Cards/CardGroup.js';
 import CardDecks from '../../components/Dashboard/DetailCard/CardDecks.js';
 
+import store from '../../store';
 import db, { Dashboard } from '../../db';
+
 export default class LogIn extends Component {
-  render(){
+  constructor() {
+    super();
     Dashboard();
+    this.state = {
+      dataState: []
+    };
+  }
+  componentWillMount(){
+
+    store.subscribe(()=>{
+      this.setState({
+        dataState: store.getState().dataDashboardReducer.data
+      });
+    });
+  }
+  render(){
+    
+    //console.log(this.state.dataState);
     return(
       <div>
       <Header />
@@ -17,7 +35,7 @@ export default class LogIn extends Component {
             <PanelUsers/>
           </div>
           <div className="col-sm-6" >
-            <CardGroup datos= { db }/>
+            <CardGroup datos= { this.state.dataState }/>
           </div>
           <div className="col-sm-4">
             <CardDecks datos= { db }/>
