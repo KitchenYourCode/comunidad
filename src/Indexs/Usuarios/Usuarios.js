@@ -20,10 +20,6 @@ export default class Usuarios extends Component {
     });
 
   }
-    componentWillUnmount(){
-    this.setState({});
-    
-  }
 	render(){
     return (
       <div>

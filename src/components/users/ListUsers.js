@@ -8,8 +8,7 @@ export default class ListUsers extends Component {
     }
     return newObj;
   }
-  render(){
-  	console.log(this.props.datos);
+  render(){ 
   	return(
   	<tbody>
   		<tr>

@@ -15,12 +15,9 @@ import Page404 from './components/404.js';
 
  export default class Routes extends Component {
 
-
-
-//<Route exact path="/" component={Home}/>
    render(){
       return(
-       <Router>
+       <Router forceRefresh={true}>
          <Switch>
            <Route exact path="/" component={Home}/>
            <Route exact path="/Dashboard" component={Dashboard}/>

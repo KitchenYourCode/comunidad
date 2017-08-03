@@ -24,7 +24,6 @@ export default class Users extends Component {
 		  { row }
 	
 		</table>
-          
         </div>);
     }else{
     return(<h1>Sin datos</h1>);

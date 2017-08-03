@@ -9,9 +9,25 @@ export default class LogIn extends Component {
        loggedIn : false
      };
   }
-   componentWillMount(){
 
-     firebase.auth().onAuthStateChanged(firebaseUser =>{
+  handleAuth(){
+    let email = document.getElementById('email').value;
+    let password = document.getElementById('password').value;
+    let auth = firebase.auth();
+    let promise = auth.signInWithEmailAndPassword(email, password);
+    promise.then(result=>{
+      
+    });
+    promise.catch(error=> {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      console.log(errorCode);
+      alert(errorMessage);
+    });
+  }
+componentDidMount(){
+      firebase.auth().onAuthStateChanged(firebaseUser =>{
+      console.log(firebaseUser.email);
       if (firebaseUser.email) {
         this.setState({
           loggedIn: true
@@ -21,23 +37,10 @@ export default class LogIn extends Component {
         alert("No logeado");
       }
     });
-   }
-  handleAuth(){
-    let email = document.getElementById('email').value;
-    let password = document.getElementById('password').value;
-    let auth = firebase.auth();
-    let promise = auth.signInWithEmailAndPassword(email, password);
-    promise.then(result=>{
-      console.log(result.email);
-    });
-    promise.catch(error=> {
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      console.log(errorCode);
-      alert(errorMessage);
-    });
+}
+ componentWillUnmount(){
+    console.log("componente desmontado Login");
   }
-
   render(){
     if (this.state.loggedIn) {
       return ( <Redirect to="/Dashboard"/> );

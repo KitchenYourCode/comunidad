@@ -4,6 +4,10 @@ import firebase from 'firebase';
 import Header from '../../components/Template/Header/Header.js';
 import PanelUsers from '../../components/Template/Users/PanelUsers.js';
 export default class CrearUsuarios extends Component {
+  constructor(props) {
+    super(props);
+  this.handleAddUser = this.handleAddUser.bind(this)
+  }
   handleAddUser(data){
     let nombre = document.getElementById('nombreUser').value;
     let apellido =document.getElementById('apellidoUser').value;
@@ -116,7 +120,7 @@ export default class CrearUsuarios extends Component {
             </div>
           </div>
         </div>
-        <button type="button" className="btn btn-success" onClick={this.handleAddUser.bind(this)}>Agregar</button>
+        <button type="button" className="btn btn-success" onClick={this.handleAddUser}>Agregar</button>
                 </div>
               </div>
               
