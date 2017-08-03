@@ -7,11 +7,7 @@ export default class Cards extends Component {
     this.state = {
       detailCards: []
     }
-    store.subscribe(()=>{
-      this.setState({
-        detailCards: store.getState().panelDashboardReducer.detailCards
-      })
-    })
+    
   }
   getValue(Obj){
     let newObj = {};
@@ -19,6 +15,13 @@ export default class Cards extends Component {
       newObj = Obj[i];
     }
     return newObj;
+  }
+  componentDidMount(){
+    store.subscribe(()=>{
+      this.setState({
+        detailCards: store.getState().panelDashboardReducer.detailCards
+      })
+    });
   }
   render(){
     let datos= this.state.detailCards;

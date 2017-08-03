@@ -12,9 +12,16 @@ const dataDashboardReducer = (state = [], action )=> {
 	}
 	return state;
 };
+const dataUseReducer = (state = [], action)=>{
+	if (action.type === "DATA_ZONA_CLIENTES") {
+		return Object.assign({}, state, {data: action.data });
+	}
+	return state;
+}
 const rootReducer = combineReducers({
     panelDashboardReducer: panelDashboardReducer,
-    dataDashboardReducer: dataDashboardReducer
+    dataDashboardReducer: dataDashboardReducer,
+    dataUseReducer: dataUseReducer
 });
 const store = createStore(rootReducer);
 export default store;
