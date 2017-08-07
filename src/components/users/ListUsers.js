@@ -14,7 +14,7 @@ export default class ListUsers extends Component {
   		<tr>
 	      <td>{this.props.datos.nombre}</td>
 	      <td>{this.props.datos.apellido}</td>
-	      <td>nombre</td>
+	      <td>{this.props.datos.email}</td>
 	      <td>{this.props.datos.fecha}</td>
 	    </tr>
 	   </tbody>

@@ -19,9 +19,9 @@ const dataUseReducer = (state = [], action)=>{
 	return state;
 }
 const rootReducer = combineReducers({
-    panelDashboardReducer: panelDashboardReducer,
-    dataDashboardReducer: dataDashboardReducer,
-    dataUseReducer: dataUseReducer
+    panelDashboardReducer,
+    dataDashboardReducer,
+    dataUseReducer
 });
 const store = createStore(rootReducer);
 export default store;
