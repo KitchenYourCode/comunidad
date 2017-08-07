@@ -14,11 +14,9 @@ export default class CrearUsuarios extends Component {
     let legajo = document.getElementById('legajoUser').value;
     let dni = document.getElementById('dniUser').value;
     let emailName = document.getElementById('emailUser').value;
-    let domEmail = document.getElementById('domEmailUser').value;
     let activo = document.getElementById('activoUser').value;
     let rol = document.getElementById('rolUser').value;
-    let zona = document.getElementById('zonaUser').value;
-    let email = emailName + '@' + domEmail;
+    let email = emailName + '@comunidad.gov.ar';
     let date = new Date();
     let dia = date.getDate();
     let mes = date.getMonth()+1;
@@ -32,7 +30,6 @@ export default class CrearUsuarios extends Component {
       email,
       activo,
       rol,
-      zona,
       fecha
     };
     firebase.database().ref('zona_clientes').push(send);
@@ -80,8 +77,7 @@ export default class CrearUsuarios extends Component {
                   <form className="form-inline">
                     <input type="text" className="form-control mb-2 mr-sm-2 mb-sm-0" id="emailUser" placeholder=""/>
                     <div className="input-group mb-2 mr-sm-2 mb-sm-0">
-                      <div className="input-group-addon">@</div>
-                      <input type="text" className="form-control" id="domEmailUser" placeholder=""/>
+                      <div className="input-group-addon">@comunidad.gov.ar</div>
                     </div>
                   </form>
                 </div>
@@ -109,17 +105,6 @@ export default class CrearUsuarios extends Component {
               </div>
             </div>
           </div>
-          <div className="form-group row">
-            <label className="col-2 col-form-label">Zona</label>
-            <div className="col-10">
-              <div className="form-group">
-                <select className="form-control" id="zonaUser">
-                  <option>Ejemplo 1</option>
-                  <option>Ejemplo 2</option>
-                </select>
-            </div>
-          </div>
-        </div>
         <button type="button" className="btn btn-success" onClick={this.handleAddUser}>Agregar</button>
                 </div>
               </div>
