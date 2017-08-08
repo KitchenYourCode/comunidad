@@ -18,10 +18,17 @@ const dataUseReducer = (state = [], action)=>{
 	}
 	return state;
 }
+const dataRoles = (state = [], action)=>{
+	if (action.type === "DATA_ROLES") {
+		return Object.assign({}, state, {data: action.data });
+	}
+	return state;
+}
 const rootReducer = combineReducers({
     panelDashboardReducer,
     dataDashboardReducer,
-    dataUseReducer
+    dataUseReducer,
+    dataRoles
 });
 const store = createStore(rootReducer);
 export default store;

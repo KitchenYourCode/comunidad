@@ -3,10 +3,25 @@ import firebase from 'firebase';
 
 import Header from '../../components/Template/Header/Header.js';
 import PanelUsers from '../../components/Template/Users/PanelUsers.js';
+import { getRoles } from '../../db';
+import store from '../../store';
+
 export default class CrearUsuarios extends Component {
   constructor(props) {
+    getRoles();
     super(props);
-  this.handleAddUser = this.handleAddUser.bind(this)
+    this.handleAddUser = this.handleAddUser.bind(this);
+    this.state = {
+      rol: []
+    }
+
+  }
+  componentWillMount(){
+      store.subscribe(()=>{
+      this.setState({
+        rol: store.getState().dataRoles.data
+      });
+    });
   }
   handleAddUser(data){
     let nombre = document.getElementById('nombreUser').value;
@@ -36,6 +51,15 @@ export default class CrearUsuarios extends Component {
     alert('Agregado');
   }
   render(){
+    // fijarse si se puede poner en una funcion reutilizable
+    let newObj = {};
+    let datos = [];
+    this.state.rol.forEach(roles=> {
+      for(let i in roles){
+        newObj = roles[i];
+        datos.push(<option key={newObj}>{newObj}</option>);
+      }
+    });
     return(
       <div>
         <Header/>
@@ -98,9 +122,7 @@ export default class CrearUsuarios extends Component {
               <div className="col-10">
                 <div className="form-group">
                   <select className="form-control" id="rolUser">
-                    <option>Admin</option>
-                    <option>Empleado web</option>
-                    <option>Empleado de caller</option>
+                  {datos}
                   </select>
               </div>
             </div>
