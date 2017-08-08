@@ -16,8 +16,7 @@ export default class PanelUsers extends Component {
          <li className="list-group-item"><Link to="/CrearUsuarios">Crear Usuarios</Link></li>
          <li className="list-group-item"><Link to="/CrearPoligonos">Crear Poligonos</Link></li>
          <li className="list-group-item"><Link to="/Usuarios">Usuarios</Link></li>
-         <li className="list-group-item"><Link to="/CtrlCalle">Controlador Calle</Link></li>
-         <li className="list-group-item"><Link to="/OpCalle">Operador Calle</Link></li>
+         <li className="list-group-item"><Link to="/index">webApp</Link></li>
        </ul>
    </div>
     </div>
