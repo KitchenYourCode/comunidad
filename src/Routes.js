@@ -11,9 +11,9 @@ import Dashboard from './Indexs/Dashboard/Dashboard.js';
 import CrearUsuarios from './Indexs/CrearUsuarios/CrearUsuarios.js';
 import CrearPoligonos from './Indexs/CrearPoligonos/CrearPoligonos.js';
 import Usuarios from './Indexs/Usuarios/Usuarios.js';
-//import CtrlCalle from './Indexs/CtrlCalle/CtrlCalle.js';
-//import OpCalle from './Indexs/OpCalle/OpCalle.js';
-import WebApp from './Indexs/webApp/index';
+import CtrlCalle from './webAppComponents/ctrlCalle/CtrlCalle';
+import OpCalle from './webAppComponents/opCalle/OpCalle';
+import WebApp from './Indexs/webApp/indexWebApp';
 import Page404 from './components/404.js';
 
  export default class Routes extends Component {
@@ -27,7 +27,9 @@ import Page404 from './components/404.js';
            <Route exact path="/CrearUsuarios" component={CrearUsuarios}/>
            <Route exact path="/CrearPoligonos" component={CrearPoligonos}/>
            <Route exact path="/Usuarios" component={Usuarios}/>
-           <Route exact path="/index" component={WebApp}/>
+           <Route exact path="/indexWebApp" component={WebApp}/>
+           <Route exact path="/indexWebApp/CtrlCalle" component={CtrlCalle}/>
+           <Route exact path="/indexWebApp/OpCalle" component={OpCalle}/>
            <Route component={Page404}/>
          </Switch>
        </Router>
