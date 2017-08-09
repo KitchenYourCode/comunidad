@@ -1,5 +1,6 @@
 import firebase from 'firebase';
 import store from './store';
+
 export default null;
 
 export function Dashboard (){
@@ -45,4 +46,15 @@ export function getRoles() {
         data
       })
   });
+}
+export function getOneData(ref, child, dataEqualTo){
+  let dbRef = firebase.database().ref(ref);
+  let dbOrden = dbRef.orderByChild(child);
+  let equal = dbOrden.equalTo(dataEqualTo);
+  equal.on('value', snapshot=>{
+    console.log(snapshot.val());
+    snapshot.forEach(snap=>{console.log(snap.val())});
+    
+  })
+  
 }
