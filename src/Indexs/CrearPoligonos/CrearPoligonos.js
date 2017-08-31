@@ -1,8 +1,8 @@
 import React, { Component} from 'react';
-
 import Header from '../../components/Template/Header/Header.js';
 import PanelUsers from '../../components/Template/Users/PanelUsers.js';
-
+import Mapa from '../../components/Poligono/mapa.js';
+import NewPoligono from '../../components/Poligono/nuevo.js';
 export default class CrearUsuarios extends Component {
   constructor(props){
     super(props);
@@ -12,18 +12,12 @@ export default class CrearUsuarios extends Component {
   }
   addPanel(){
     this.setState({
-      nuevo:        <div className="row">
-                    <div className="col-sm-12">
-                      <input className="form-control" type="text" placeholder="Coordenadas"/>
-                      <br/>
-                      <input className="form-control" type="text" placeholder="Nombre"/>
-                      <br/>
-                      <buttom className="btn btn-secondary">Agregar</buttom>
-                    </div>
-                  </div>
+      nuevo: <NewPoligono/>
     });
   }
+
   render(){
+
     return(
       <div>
         <Header/>
@@ -31,8 +25,12 @@ export default class CrearUsuarios extends Component {
           <div className="col-sm-2">
             <PanelUsers/>
           </div>
-          <div className="col-sm-6">
-            <iframe width="650" title="hardcoding" height="500" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDXwrgz9MVf2wmkjFQWXkmcJ_bTAqJTgTg&q=-32.8833303,-68.8935387"/>
+          <div className="col-sm-6" >
+            <div>
+            <Mapa
+            containerElement={<div style={{ "height": "100%"  }} />}
+            mapElement={<div style={{ "height": "500px" }} />} />
+            </div>
           </div>
           <div className="col-sm-4">
             <buttom onClick={()=>{this.addPanel()}}className="btn btn-secondary">Nuevo</buttom>
@@ -68,6 +66,9 @@ export default class CrearUsuarios extends Component {
           </div>
         </div>
       </div>
+
     );
+    
   }
+
 }
