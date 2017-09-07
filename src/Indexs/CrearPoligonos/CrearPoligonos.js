@@ -1,10 +1,8 @@
-/* global google */
 import React, { Component} from 'react';
 import Header from '../../components/Template/Header/Header.js';
 import PanelUsers from '../../components/Template/Users/PanelUsers.js';
 import Mapa from '../../components/Poligono/mapa.js';
 import NewPoligono from '../../components/Poligono/nuevo.js';
-import { withGoogleMap, GoogleMap } from "react-google-maps";
 export default class CrearUsuarios extends Component {
   constructor(props){
     super(props);
@@ -70,7 +68,7 @@ export default class CrearUsuarios extends Component {
                 <td><input type="checkbox"/></td>
               </tr>
             </table>
-            {this.state.nuevo}
+            <NewPoligono/>
           </div>
         </div>
       </div>

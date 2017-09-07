@@ -16,7 +16,6 @@ export default class newPoligono extends Component
         poligono: store.getState().dataPoligonos.data
       });
     });
-    console.log(this.state.poligono)
 	return(
 		<div className="row">
             <div className="col-sm-12">
