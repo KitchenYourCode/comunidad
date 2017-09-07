@@ -15,9 +15,13 @@ export default class CrearUsuarios extends Component {
       nuevo: <NewPoligono/>
     });
   }
+    handleMapMounted(map) {
+    this._map = map;
+    console.log(map);
+  }
+
 
   render(){
-
     return(
       <div>
         <Header/>
@@ -29,7 +33,9 @@ export default class CrearUsuarios extends Component {
             <div>
             <Mapa
             containerElement={<div style={{ "height": "100%"  }} />}
-            mapElement={<div style={{ "height": "500px" }} />} />
+            mapElement={<div style={{ "height": "500px" }} />} 
+            onMapMounted={this.handleMapMounted.bind(this)}
+            />
             </div>
           </div>
           <div className="col-sm-4">
@@ -62,7 +68,7 @@ export default class CrearUsuarios extends Component {
                 <td><input type="checkbox"/></td>
               </tr>
             </table>
-            {this.state.nuevo}
+            <NewPoligono/>
           </div>
         </div>
       </div>

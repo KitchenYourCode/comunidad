@@ -53,8 +53,76 @@ export function getOneData(ref, child, dataEqualTo){
   let equal = dbOrden.equalTo(dataEqualTo);
   equal.on('value', snapshot=>{
     console.log(snapshot.val());
-    snapshot.forEach(snap=>{console.log(snap.val())});
+    snapshot.forEach(snap=>{
+      console.log(snap.val())
+    });
     
   })
   
+}
+/*
+export function getAllData(ref,type) {
+  let dbRef = firebase.database().ref(ref);
+  dbRef.on('value', snapshot=>{
+    let i = 0;
+    let data = [];
+    snapshot.forEach(snap=>{
+      let key = {id: Object.keys(snapshot.val())[i]};
+      data.push(Object.assign({},snap.val(), key));
+      store.dispatch({
+        type,
+        data
+      });
+      i++;
+    });
+  });
+}*/
+/*export function getDepartamentos(){
+  let dbRef = firebase.database().ref('departamentos');
+  
+  dbRef.on('value', snapshot=>{
+    let i = 0;
+    let data=[];
+    snapshot.forEach(snap=>{
+      let key = {id: Object.keys(snapshot.val())[i]};
+      data.push(Object.assign({},snap.val() ));
+      store.dispatch({
+        type: "DEPARTAMENTOS",
+        data
+      });
+      i++;    
+    })
+
+    
+  });
+  //return data;
+  /*dbRef.on('value', snapshot=>{
+    let i = 0;
+    let data = [];
+    snapshot.forEach(snap=>{
+      let key = {id: Object.keys(snapshot.val())[i]};
+      data.push(Object.assign({},snap.val(), key));
+      store.dispatch({
+        type: "DEPARTAMENTOS",
+        data
+      });
+      i++;
+    });
+    }
+  }*/
+  export function getDepartamentos(){
+  let dbRef = firebase.database().ref('departamentos');
+  dbRef.on('value', snapshot=>{
+    let i = 0;
+    let data = [];
+    snapshot.forEach(snap=>{
+      let key = {id: Object.keys(snapshot.val())[i]};
+      data.push(Object.assign({},snap.val(), key));
+      store.dispatch({
+        type: "DATA_DEPARTAMENTOS",
+        data
+      });
+      i++;
+    });
+  });
 }
