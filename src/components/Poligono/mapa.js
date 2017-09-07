@@ -53,13 +53,13 @@ getEditar(){
         defaultCenter={{lat: -32.8897788, lng: -68.8456187}}
         >
          <DrawingManager
-      defaultDrawingMode={google.maps.drawing.OverlayType.POLYGON}
+      defaultDrawingMode={google.maps.drawing.OverlayType}
       options={{
         drawingControl: true,
         drawingControlOptions: {
           position: google.maps.ControlPosition.TOP_CENTER,
           drawingModes: [
-            google.maps.drawing.OverlayType
+            google.maps.drawing.OverlayType.POLYGON
             ],
         },polygonOptions: {
             editable: false,
