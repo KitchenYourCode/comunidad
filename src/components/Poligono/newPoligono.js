@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { getDepartamentos } from '../../db';
+import firebase from 'firebase';
 import store from '../../store';
 
 export default class newPoligono extends Component
@@ -21,10 +22,12 @@ export default class newPoligono extends Component
     });
   }
 	handleAddPolygon(){
-		alert("sd");
 		let nombre = document.getElementById('nombre').value;
 		let poligono = document.getElementById('poligono').value;
-		let send = {}
+		let departamento =document.getElementById('departamento').value;
+		let send = {nombre,poligono,departamento};
+		firebase.database().ref('poligonos').push(send);
+    	alert('Agregado');
 	}
 	render()
 	{
@@ -49,7 +52,7 @@ export default class newPoligono extends Component
               <br/>
               <input className="form-control" id="nombre" type="text" placeholder="Nombre"/>
               <br/>
-                  <select className="form-control">
+                  <select className="form-control" id="departamento" >
                   {datos}
                   </select>
                   <br/>

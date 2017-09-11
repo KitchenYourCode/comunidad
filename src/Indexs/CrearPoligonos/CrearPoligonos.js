@@ -2,7 +2,7 @@ import React, { Component} from 'react';
 import Header from '../../components/Template/Header/Header.js';
 import PanelUsers from '../../components/Template/Users/PanelUsers.js';
 import Mapa from '../../components/Poligono/mapa.js';
-import NewPoligono from '../../components/Poligono/nuevo.js';
+import NewPoligono from '../../components/Poligono/newPoligono.js';
 export default class CrearUsuarios extends Component {
   constructor(props){
     super(props);
