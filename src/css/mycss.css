@@ -30,3 +30,7 @@ html, body {
       margin: 0;
       padding: 0;
     }
+.col-center{
+    float: none;
+    margin: 0 auto;
+}

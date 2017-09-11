@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-
-import Header from '../../components/Template/Header/Header.js';
-import PanelUsers from '../../components/Template/Users/PanelUsers.js';
-
 import store from '../../store';
-//import { Dashboard } from '../../db';
+import Titulo from '../Template/titulo';
+import User from './User';
+import Prioridad from './Prioridad';
+import Mandatos from './Mandatos';
 
 export default class CtrlCalle extends Component {
   constructor() {
@@ -26,16 +25,15 @@ export default class CtrlCalle extends Component {
   render(){
     return(
       <div>
-      <Header />
+      <Titulo titulo="Operador calle"/>
         <div className="row">
-          <div className="col-sm-2">
-            <PanelUsers/>
+          <div className="col-2">
+          
           </div>
-          <div className="col-sm-10" >
-            <h1>Sin datos</h1>
-          </div>
+            <User/>
         </div>
-
+        <Prioridad/>
+        <Mandatos/>
       </div>
     );
   }

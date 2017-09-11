@@ -37,13 +37,21 @@ const dataDepartamentos = (state = [], action)=>{
 
 	return state;
 }
+const dataCategorias = (state = [], action)=>{
+	if (action.type === "DATA_CATEGORIAS") {
+		return Object.assign({}, state, {data: action.data });
+	}
+
+	return state;
+}
 const rootReducer = combineReducers({
     panelDashboardReducer,
     dataDashboardReducer,
     dataUseReducer,
     dataRoles,
     dataPoligonos,
-    dataDepartamentos
+    dataDepartamentos,
+    dataCategorias
 });
 const store = createStore(rootReducer);
 export default store;

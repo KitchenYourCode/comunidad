@@ -73,3 +73,18 @@ export function getOneData(ref, child, dataEqualTo){
     });
   });
 }
+export function getCategorias() {
+  let dbRef = firebase.database().ref("categorias");
+  dbRef.on('value', snapshot=>{
+    let i = 0;
+    let data = [];
+    snapshot.forEach(snap=>{
+      data.push(Object.assign({},snap.val()));
+      store.dispatch({
+        type: "DATA_CATEGORIAS",
+        data
+      });
+      i++;
+    });
+  });
+}

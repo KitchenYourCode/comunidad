@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 
-import Header from '../../components/Template/Header/Header.js';
-import PanelUsers from '../../components/Template/Users/PanelUsers.js';
-
+import Titulo from '../Template/titulo'
+import Categorias from './Categorias';
+import Asignacion from './Asignacion';
+import Equipo from './Equipo';
 import store from '../../store';
 //import { Dashboard } from '../../db';
 
@@ -21,21 +22,19 @@ export default class CtrlCalle extends Component {
     });*/
   }
   componentWillUnmount(){
-    console.log("componente desmontado Dashboard");
   }
   render(){
     return(
       <div>
-      <Header />
         <div className="row">
-          <div className="col-sm-2">
-            <PanelUsers/>
-          </div>
-          <div className="col-sm-10" >
-            <h1>Sin datos</h1>
+          <div className="col-sm-12">
+          <Titulo titulo="Sitema de control de calle"/>
           </div>
         </div>
-
+            <Categorias/>
+          
+            <Asignacion/>
+          <Equipo/>
       </div>
     );
   }
