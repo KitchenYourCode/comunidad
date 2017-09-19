@@ -1,28 +1,47 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
 import { Redirect, withRouter } from 'react-router-dom';
-import {getOneData} from '../../db';
+import { getLogginCrtlOpCalle } from '../../db';
+import store from '../../store';
 export default class Login extends Component {
   constructor(props) {
     super(props);
-  getOneData("zona_clientes", "email", "elias.saavedra.lol@gmail.com");
+  
       this.state = {
-        login: false,
-        type: null
+        id: null,
+        rol: null
      };
      this.handleAuth = this.handleAuth.bind(this);
   }
+    getValue(Obj){
+    let newObj = {};
+    for( let i in Obj ){
+      newObj = Obj[i];
+    }
+    return newObj;
+  }
   handleAuth(){
+    let email = document.getElementById('email').value;
+    let password = document.getElementById('password').value;
+    getLogginCrtlOpCalle("zona_clientes", "email", email, password);
     alert("click");
-    this.setState({
-      login:true,
-      type: "CTRL_CALLE"
-    })
+       store.subscribe(()=>{
+        this.setState({
+          id:store.getState().dataLoginCtrlOpCalle.data[0].id,
+          rol:store.getState().dataLoginCtrlOpCalle.data[0].rol
+        })
+    });
   }
   render(){
-    if (this.state.login && this.state.type === "CTRL_CALLE") {
-      return ( <Redirect to="/indexWebApp/CtrlCalle/"/> );
-    }
+    console.log(this.state.rol)
+
+      if (this.state.rol === "Operador Calle") {
+        return ( <Redirect to={"/indexWebApp/OpCalle/"+this.state.id}/> );
+      }
+      if (this.state.rol === "Controlador Calle") {
+        return ( <Redirect to={"/indexWebApp/CtrlCalle/"+this.state.id}/> );
+      }
+      //return ( <Redirect to="/indexWebApp/CtrlCalle/"/> );
     //if (this.state.login && this.state.type === "CTRL_CALLE") {}
     return(
       <div className="container comunidadLogIn hidden-sm-up">

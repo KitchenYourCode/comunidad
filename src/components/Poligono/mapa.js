@@ -9,12 +9,13 @@ class Mapa extends Component {
     super(props);
     this.state = {
       Polygon: {},
-      poligonoClean: true,
       mover: false,
-      agarrar: false
+      agarrar: false,
+      options: true,
+      DrawingMode:google.maps.drawing.OverlayType.POLYGON
     }
   }
-getCoordenadas(){
+setCoordenadas(){
   let e = this.state.Polygon.e;
   let coordenadas = e.getPath().getArray();
   let poligono = [];
@@ -29,6 +30,9 @@ getCoordenadas(){
     poligono
   });
   //console.log(this.state.overlay.e)
+}
+getCoordenadas(){
+  this.setState({Polygon:{e:this.state.Polygon.e}});
 }
 getMover(){
   let e =this.state.Polygon.e;
@@ -45,6 +49,9 @@ getEditar(){
   this.setState({mover : !this.state.mover})
   
 }
+handleOptions(){
+ return this.state.options;
+}
 
   render(){
     return(
@@ -53,9 +60,9 @@ getEditar(){
         defaultCenter={{lat: -32.8897788, lng: -68.8456187}}
         >
          <DrawingManager
-      defaultDrawingMode={google.maps.drawing.OverlayType}
+      drawingMode={this.state.DrawingMode}
       options={{
-        drawingControl: true,
+        drawingControl: this.state.options,
         drawingControlOptions: {
           position: google.maps.ControlPosition.TOP_CENTER,
           drawingModes: [
@@ -66,22 +73,23 @@ getEditar(){
             draggable: false,
           } 
       }}
-      
+
+      //options={{drawingControl:this.state.options}}
 
       //onPolygonComplete={(e)=>{if(this.state.poligonoClean){this.setState({Polygon:{e},poligonoClean: false}); }else{console.log(e.setMap(null)); } } }
       onPolygonComplete={
       (e)=>{
-
-        if (!this.state.poligonoClean) {e.setMap(null)}
-      this.setState({Polygon:{e},poligonoClean: false});
+      this.setState({Polygon:{e},poligonoClean: false, options:false, DrawingMode:null});
       this.getCoordenadas();
       //google.maps.event.addListener(e.getPath(), 'set_at', this.getCoordenadas.bind(this));
       //google.maps.event.addListener(e.getPath(), 'insert_at', ()=> {console.log('Vertex insert on outer path.');});
+      //<button onClick={()=>{this.getMover()}}  disabled={this.state.mover}>Mover</button>
   }
 }
     />
-      <button onClick={()=>{this.getMover()}}  disabled={this.state.mover}>Mover</button>
-      <button onClick={()=>{this.getEditar()}} disabled={this.state.agarrar}>editar</button>
+      
+      <button onClick={()=>{this.getEditar()}} disabled={this.state.agarrar}>Editar</button>
+      <button onClick={()=>{this.setCoordenadas()}}  disabled={this.state.mover || this.state.agarrar}>Agregar</button>
       </GoogleMap>
     );
   }

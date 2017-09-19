@@ -31,6 +31,7 @@ export default class CrearUsuarios extends Component {
     let emailName = document.getElementById('emailUser').value;
     let activo = document.getElementById('activoUser').value;
     let rol = document.getElementById('rolUser').value;
+    let password = document.getElementById('passwordUser').value;
     let email = emailName + '@comunidad.gov.ar';
     let date = new Date();
     let dia = date.getDate();
@@ -45,7 +46,8 @@ export default class CrearUsuarios extends Component {
       email,
       activo,
       rol,
-      fecha
+      fecha,
+      password
     };
     firebase.database().ref('zona_clientes').push(send);
     alert('Agregado');
@@ -104,6 +106,12 @@ export default class CrearUsuarios extends Component {
                       <div className="input-group-addon">@comunidad.gov.ar</div>
                     </div>
                   </form>
+                </div>
+              </div>
+              <div className="form-group row">
+                <label className="col-2 col-form-label">Contraseña</label>
+                <div className="col-10">
+                  <input className="form-control" type="password" id="passwordUser"/>
                 </div>
               </div>
               <div className="form-group row">

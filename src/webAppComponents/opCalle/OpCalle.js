@@ -4,25 +4,27 @@ import Titulo from '../Template/titulo';
 import User from './User';
 import Prioridad from './Prioridad';
 import Mandatos from './Mandatos';
+import { getPerfil } from '../../db';
 
-export default class CtrlCalle extends Component {
+export default class OpCalle extends Component {
   constructor() {
-    //Dashboard();
     super();
+    
     this.state = {
     };
+    
   }
-  componentDidMount(){
-   /* store.subscribe(()=>{
+  componentWillMount(){
+    getPerfil(this.props.match.params.id);
+    store.subscribe(()=>{
       this.setState({
-        dataState: store.getState().dataDashboardReducer.data
-      });
-    });*/
-  }
-  componentWillUnmount(){
-    console.log("componente desmontado Dashboard");
-  }
+        nombre:store.getState().dataPerfilCtrlOpCalle.data[0].nombre,
+        apellido: store.getState().dataPerfilCtrlOpCalle.data[0].apellido
+      });    
+  });
+}
   render(){
+    {console.log(this.state);}
     return(
       <div>
       <Titulo titulo="Operador calle"/>
@@ -30,7 +32,7 @@ export default class CtrlCalle extends Component {
           <div className="col-2">
           
           </div>
-            <User/>
+            <User nombre={this.state.nombre}/>
         </div>
         <Prioridad/>
         <Mandatos/>
