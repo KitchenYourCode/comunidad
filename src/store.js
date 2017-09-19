@@ -37,13 +37,44 @@ const dataDepartamentos = (state = [], action)=>{
 
 	return state;
 }
+const dataCategorias = (state = [], action)=>{
+	if (action.type === "DATA_CATEGORIAS") {
+		return Object.assign({}, state, {data: action.data });
+	}
+
+	return state;
+}
+const dataLoginCtrlOpCalle = (state = [], action)=>{
+	switch(action.type) {
+    case "Operador Calle":
+        return Object.assign({}, state, {data: action.data });
+        break;
+    case "Controlador Calle":
+        return Object.assign({}, state, {data: action.data });
+        break;
+    default:
+        return state;
+	} 
+
+	return state;
+}
+const dataPerfilCtrlOpCalle = (state = [], action)=>{
+	if (action.type === "DATA_PERFIL") {
+		return Object.assign({}, state, {data: action.data });
+	}
+
+	return state;
+}
 const rootReducer = combineReducers({
     panelDashboardReducer,
     dataDashboardReducer,
     dataUseReducer,
     dataRoles,
     dataPoligonos,
-    dataDepartamentos
+    dataDepartamentos,
+    dataCategorias,
+    dataLoginCtrlOpCalle,
+    dataPerfilCtrlOpCalle
 });
 const store = createStore(rootReducer);
 export default store;

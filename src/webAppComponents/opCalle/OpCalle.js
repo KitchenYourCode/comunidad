@@ -1,41 +1,41 @@
 import React, { Component } from 'react';
-
-import Header from '../../components/Template/Header/Header.js';
-import PanelUsers from '../../components/Template/Users/PanelUsers.js';
-
 import store from '../../store';
-//import { Dashboard } from '../../db';
+import Titulo from '../Template/titulo';
+import User from './User';
+import Prioridad from './Prioridad';
+import Mandatos from './Mandatos';
+import { getPerfil } from '../../db';
 
-export default class CtrlCalle extends Component {
+export default class OpCalle extends Component {
   constructor() {
-    //Dashboard();
     super();
+    
     this.state = {
     };
+    
   }
-  componentDidMount(){
-   /* store.subscribe(()=>{
+  componentWillMount(){
+    getPerfil(this.props.match.params.id);
+    store.subscribe(()=>{
       this.setState({
-        dataState: store.getState().dataDashboardReducer.data
-      });
-    });*/
-  }
-  componentWillUnmount(){
-    console.log("componente desmontado Dashboard");
-  }
+        nombre:store.getState().dataPerfilCtrlOpCalle.data[0].nombre,
+        apellido: store.getState().dataPerfilCtrlOpCalle.data[0].apellido
+      });    
+  });
+}
   render(){
+    {console.log(this.state);}
     return(
       <div>
-      <Header />
+      <Titulo titulo="Operador calle"/>
         <div className="row">
-          <div className="col-sm-2">
-            <PanelUsers/>
+          <div className="col-2">
+          
           </div>
-          <div className="col-sm-10" >
-            <h1>Sin datos</h1>
-          </div>
+            <User nombre={this.state.nombre}/>
         </div>
-
+        <Prioridad/>
+        <Mandatos/>
       </div>
     );
   }

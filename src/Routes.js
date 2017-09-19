@@ -28,8 +28,8 @@ import Page404 from './components/404.js';
            <Route exact path="/CrearPoligonos" component={CrearPoligonos}/>
            <Route exact path="/Usuarios" component={Usuarios}/>
            <Route exact path="/indexWebApp" component={WebApp}/>
-           <Route exact path="/indexWebApp/CtrlCalle" component={CtrlCalle}/>
-           <Route exact path="/indexWebApp/OpCalle" component={OpCalle}/>
+           <Route path="/indexWebApp/CtrlCalle/:id" component={CtrlCalle} children={match=>{match.id}} />
+           <Route path="/indexWebApp/OpCalle/:id" component={OpCalle} children={match=>{match.id}}/>
            <Route component={Page404}/>
          </Switch>
        </Router>
