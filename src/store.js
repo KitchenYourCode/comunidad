@@ -26,7 +26,7 @@ const dataRoles = (state = [], action)=>{
 }
 const dataPoligonos = (state = [], action)=>{
 	if (action.type === "POLIGONO") {
-		return Object.assign({}, state, {data: action.poligono });
+		return Object.assign({}, state, {lat: action.lat, lng: action.lng });
 	}
 	return state;
 }
@@ -65,6 +65,13 @@ const dataPerfilCtrlOpCalle = (state = [], action)=>{
 
 	return state;
 }
+const dataAllPolygonsDraws = (state = [], action)=>{
+	if (action.type === "DATA_POLYGONS") {
+		return Object.assign({}, state, {data: action.data, length: action.data.length });
+	}
+
+	return state;
+}
 const rootReducer = combineReducers({
     panelDashboardReducer,
     dataDashboardReducer,
@@ -74,7 +81,8 @@ const rootReducer = combineReducers({
     dataDepartamentos,
     dataCategorias,
     dataLoginCtrlOpCalle,
-    dataPerfilCtrlOpCalle
+    dataPerfilCtrlOpCalle,
+    dataAllPolygonsDraws
 });
 const store = createStore(rootReducer);
 export default store;

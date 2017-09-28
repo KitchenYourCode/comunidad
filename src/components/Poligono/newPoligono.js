@@ -9,7 +9,8 @@ export default class newPoligono extends Component
 	  super(props);
 	  getDepartamentos()
 	  this.state = {
-	  	poligono:[],
+	  	lat:[],
+      lng:[],
 	  	departamentos:[]
 	  };
 	}
@@ -23,9 +24,10 @@ export default class newPoligono extends Component
   }
 	handleAddPolygon(){
 		let nombre = document.getElementById('nombre').value;
-		let poligono = document.getElementById('poligono').value;
+		let lat = this.state.lat;
+    let lng = this.state.lng;
 		let departamento =document.getElementById('departamento').value;
-		let send = {nombre,poligono,departamento};
+		let send = {nombre,lat,lng,departamento};
 		firebase.database().ref('poligonos').push(send);
     	alert('Agregado');
 	}
@@ -42,13 +44,14 @@ export default class newPoligono extends Component
     });
 	store.subscribe(()=>{
       this.setState({
-        poligono: store.getState().dataPoligonos.data
+        lat: store.getState().dataPoligonos.lat,
+        lng: store.getState().dataPoligonos.lng
       });
     });
 	return(
 		<div className="row">
             <div className="col-sm-12">
-              <input className="form-control" id="poligono" type="text"  value={this.state.poligono} disabled/>
+              <input className="form-control" id="poligono" type="text"  value={this.state.lat+this.state.lng} disabled/>
               <br/>
               <input className="form-control" id="nombre" type="text" placeholder="Nombre"/>
               <br/>

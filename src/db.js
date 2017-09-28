@@ -124,3 +124,19 @@ export function getPerfil(child){
     });
   })
 }
+export const getPolygons=()=>{
+  let dbRef = firebase.database().ref("poligonos");
+  let data = [];
+  dbRef.on('value', snapshot=>{
+      let i = 0;
+    snapshot.forEach(snap=>{
+    let key = {id: Object.keys(snapshot.val())[i]};
+    data.push(Object.assign({},{lat: snap.val().lat, lng: snap.val().lng}, key ));
+    store.dispatch({
+      type: "DATA_POLYGONS",
+      data
+      });
+    i++;
+    })
+  })
+}
